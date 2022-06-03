@@ -7,6 +7,10 @@ const userRoutes = require("./routes/users");
 const authRoutes = require("./routes/auth");
 const topicRoutes = require("./routes/topic");
 const groupRoutes = require("./routes/group");
+const panelRoutes = require("./routes/panel");
+//const staffRoutes = require("./routes/staff");
+//const adminRoutes = require('./routes/admin');
+
 //const fileuploadRoutes = require("./routes/fileupload");
 
 // database connection
@@ -20,7 +24,11 @@ app.use(cors());
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/topic", topicRoutes);
-app.use("/api/group", groupRoutes );
+app.use("/api/group", groupRoutes);
+//app.use("/api/admin", adminRoutes);
+app.use("/api/panel", panelRoutes);
+//app.use("/api/staff", staffRoutes);
+
 //app.use("/api/fileupload", fileuploadRoutes);
 
 // app.use(express.static(path.join(__dirname, '..', 'build')));
