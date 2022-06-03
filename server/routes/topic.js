@@ -31,7 +31,16 @@ router.get("/getGroupId/:groupId",(req, res) => {
 	  .catch((err) => res.status(400).json("Error: " + err));
   });
 
+// get all topics
 
+router.route("/").get(async (req, res) => {
+
+    await Topic.find().then((topics) => {
+        res.json(topics);
+    }).catch((err) => {
+        console.log(err);
+    })
+})
 
 //update topic details
 
