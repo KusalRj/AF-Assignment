@@ -13,7 +13,7 @@ const RegtopUpdate = () => {
         year: "",
         supervisor: "",
         coSupervisor: "",
-        //status: "N/A",
+        topicStatus: "",
       });
 
     const navigate = useNavigate();     
@@ -25,7 +25,7 @@ const RegtopUpdate = () => {
     const[year,setYEAR] = useState()
     const[supervisor,setSUPERVISOR] = useState()
     const[coSupervisor,setCOSUPERVISOR] = useState()
-    //const[status,setSTATUS] = useState()
+    const[topicStatus,setTOPICSTATUS] = useState()
 
     useEffect(() => {
 
@@ -38,7 +38,7 @@ const RegtopUpdate = () => {
             setYEAR(response.data[0].year)
             setSUPERVISOR(response.data[0].supervisor)
             setCOSUPERVISOR(response.data[0].coSupervisor)
-            //setFEEDBACK(response.data[0].feedback)
+            setTOPICSTATUS(response.data[0].topicStatus)
 
             console.log(response.data)
         })
@@ -142,14 +142,14 @@ const RegtopUpdate = () => {
                     readOnly
                     className={styles.input}
                 />
-                {/* <input
+                <input
                     type="text"
-                    placeholder="Panal member's feedback"
-                    name="feedback"                    
-                    value={feedback}
-                    //readOnly
+                    placeholder="Panal member's status"
+                    name="topicStatus"                    
+                    value={topicStatus}
+                    readOnly
                     className={styles.input}
-                /> */}
+                />
                  {error && <div className={styles.error}>{error}</div>}
                 <button type="submit" className={styles.btnb}>
                     Update

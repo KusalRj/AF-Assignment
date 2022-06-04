@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
   year: { type: String, required: true },
   supervisor: { type: String, required: true },
   coSupervisor: { type: String, required: true },
-  //feedback: {type: String, required: false},
+  topicStatus: {type: String, required: true},
 });
 
 const Topic = mongoose.model("topic", userSchema);
@@ -25,7 +25,7 @@ const validate = (data) => {
     year: Joi.string().required().label("Year"),
     supervisor: Joi.string().required().label("Supervisor Name"),
     coSupervisor: Joi.string().required().label("Co-Supervisor Name"),
-    //feedback: Joi.string().label("Feedback"),           
+    topicStatus: Joi.string().required().label("Topic status"),           
   });
   return schema.validate(data);
 };

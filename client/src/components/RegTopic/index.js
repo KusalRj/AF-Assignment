@@ -11,7 +11,7 @@ const Regtop = () => {
     year: "",
     supervisor: "",
     coSupervisor: "",
-    //feedback: "",
+    topicStatus: "",
   });
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -101,15 +101,21 @@ const Regtop = () => {
               required
               className={styles.input}
             />
-            {/* <input
+            <input
               type="text"
-              placeholder="Feedback From panal member"
-              name="feedback"
+              placeholder="Ststus - Pending"
+              name="topicStatus"
               onChange={handleChange}
-              readOnly
-              value={data.feedback}
+              //readOnly
+              value={data.topicStatus}
               className={styles.input}
-            /> */}
+            />
+
+            {/* <select class="form-control" id="topicStatus" required onChange={handleChange} value={data.topicStatus} >
+                    <option value="Submited On-Time">Select</option>
+                    <option value="Pending">Pending</option>
+            </select> */}
+
             {error && <div className={styles.error}>{error}</div>}
 
             <button type="submit" className={styles.btnb}>
