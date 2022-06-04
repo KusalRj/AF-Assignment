@@ -29,10 +29,10 @@ function Header(){
 
                 <li al className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Mr. Lucid 
+            Account 
           </a>
             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a className="dropdown-item" href="#">Sign Out</a></li>
+                <li><a className="dropdown-item" href="#">Sign In</a></li>
                 
             </ul>
             </li>
