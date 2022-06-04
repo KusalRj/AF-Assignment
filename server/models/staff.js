@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+
 const Schema = mongoose.Schema;
 
-const staffSchema = new Schema({
-
+const staffSchema = new Schema ({
     S_name: {
         type: String,
-        required: true
+        required: true,
       },
     
     email: {
@@ -16,14 +16,12 @@ const staffSchema = new Schema({
       },
     position: {
         type: String,
-        required: true
+        required: true,
     },
     password: {
         type: String,
-        required: true
-      },
-
-      
+        required: true,
+      } 
 })
 
 staffSchema.methods.verifyCredentials = async function(inputPwd){
@@ -46,6 +44,6 @@ staffSchema.methods.verifyCredentials = async function(inputPwd){
   
   })
 
-const Staff = mongoose.model("Staff", staffSchema);
+const Staff = mongoose.model('Staff', staffSchema);
 
 module.exports = Staff;

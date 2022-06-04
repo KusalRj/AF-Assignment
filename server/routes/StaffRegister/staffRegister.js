@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const bcrypt = require("bcrypt");
 let StaffRegister = require("../../models/StaffRegister/staffRegister");
 
 router.route("/addStaff").post((req,res) => {
