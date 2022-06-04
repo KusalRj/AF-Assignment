@@ -13,7 +13,7 @@ function Staff() {
 
     useEffect(() => {
         function getStaff() {
-            axios.get("http://localhost:8082/api/staff/").then(res => {
+            axios.get("http://localhost:8070/staff/").then(res => {
                 setStaffs(res.data);
             }).catch(err => {
                 console.log(err);
@@ -25,7 +25,7 @@ function Staff() {
     const DeleteStaffs = (event, id) => {
         event.preventDefault();
         if (id !== null) {
-            axios.delete(`http://localhost:8082/api/staff/delete/${id}`).then(res => {
+            axios.delete(`http://localhost:8070/staff/delete/${id}`).then(res => {
                 console.log(res.data);    
             }).catch(err => {
                 console.log(err);
@@ -67,7 +67,7 @@ function Staff() {
             position: editStaff.position
         }
 
-        axios.put(`http://localhost:8082/api/staff/update/${editStaffID}`, edits).then(res => {
+        axios.put(`http://localhost:8070/staff/update/${editStaffID}`, edits).then(res => {
             setStaffs(res.data);
             setEditStaffID('');
         }).catch(err => {

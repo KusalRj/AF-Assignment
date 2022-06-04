@@ -13,6 +13,8 @@ const panelRoutes = require("./routes/panel");
 const stumakingRouter = require("./routes/stuMarkingRoute.js");
 const topicAcceptRout = require("./routes/topicAcceptRout.js");
 const topicSuroute = require("./routes/topicSuroute.js")
+const uploadRouter = require("./routes/upload");
+const loginRouter = require ("./routes/login");
 //const staffRoutes = require("./routes/staff");
 //const adminRoutes = require('./routes/admin');
 const dotenv= require("dotenv");
@@ -54,6 +56,8 @@ app.use("/api/panel", panelRoutes);
 app.use("/stumarks",stumakingRouter);
 app.use("/accepttopics",topicAcceptRout);
 app.use("/edittopic",topicSuroute);
+app.use("/upload", uploadRouter);
+app.use("/login", loginRouter);
 
 //app.use("/api/fileupload", fileuploadRoutes);
 

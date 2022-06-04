@@ -6,6 +6,7 @@ const panelSchema = new Schema ({
     group: {
         type: String,
         required: true,
+        unique: true
     },
 
     topicName: {

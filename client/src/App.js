@@ -22,6 +22,8 @@ import AddEVMarking from './components/EVMarking/AddEVMarking';
 import ViewMarking from './components/EVMarking/ViewMarking';
 import ViewPanel from './components/ViewPanel/ViewPanel';
 import StaffSignup from './components/StaffRegister/StaffRegister';
+import FileUpload from "./components/upload";
+import LoginAdmin from "./components/login";
 
 //import FileUpload from "./components/FileUpload";
 function App() {
@@ -54,6 +56,8 @@ function App() {
           <Route path='/viewMarks' element={ <ViewMarking/>}/>
           <Route path='/viewP' element={ <ViewPanel/>}/>
           <Route path='/addStaff' element={<StaffSignup/>}/>
+		  <Route path="/upload" element = {<FileUpload/>}/>
+        <Route path="/LoginAdmin" element = {<LoginAdmin/>}/>
 
 		</Routes>
 	);

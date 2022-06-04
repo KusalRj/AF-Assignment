@@ -17,7 +17,7 @@ function Panels() {
 
     useEffect(() => {
         function getStaff() {
-            axios.get("http://localhost:8082/api/staff/").then(res => {
+            axios.get("http://localhost:8070/staff/").then(res => {
                 setStaffs(res.data);
             }).catch(err => {
                 console.log(err);
@@ -26,7 +26,7 @@ function Panels() {
         getStaff();
 
         function getTopics() {
-            axios.get("http://localhost:8082/api/topic/").then(res => {
+            axios.get("http://localhost:8070/topic/").then(res => {
                 setTopics(res.data);
             }).catch(err => {
                 console.log(err);
@@ -50,7 +50,7 @@ function Panels() {
         const sv = selectedGroup.supervisor;
         const csv = selectedGroup.coSupervisor;
 
-        const newStaff = staffs.filter(staff => (staff.name !== sv) && (staff.name !== csv));
+        const newStaff = staffs.filter(staff => (staff.S_name !== sv) && (staff.S_name !== csv));
         setStaffs(newStaff);
     }
 
@@ -60,7 +60,7 @@ function Panels() {
         const memID1 = event.target.value;
         
         const selectedMember1 = staffs.find(staff => staff._id === memID1);
-        setMember1(selectedMember1.name);
+        setMember1(selectedMember1.S_name);
 
         const newStaff1 = staffs.filter(staff => staff._id !== memID1);
         setStaffs2(newStaff1);
@@ -72,7 +72,7 @@ function Panels() {
         const memID2 = event.target.value;
         
         const selectedMember2 = staffs2.find(staff => staff._id === memID2);
-        setMember2(selectedMember2.name);
+        setMember2(selectedMember2.S_name);
 
         const newStaff2 = staffs2.filter(staff => staff._id !== memID2);
         setStaffs3(newStaff2);
@@ -84,7 +84,7 @@ function Panels() {
         const memID3 = event.target.value;
         
         const selectedMember3 = staffs3.find(staff => staff._id === memID3);
-        setMember3(selectedMember3.name);
+        setMember3(selectedMember3.S_name);
     }
 
     const submitPanel = (event) => {
@@ -99,7 +99,7 @@ function Panels() {
         }
         console.log(panelDetails);
 
-        axios.post("http://localhost:8082/api/panel/add", panelDetails).then(res => {
+        axios.post("http://localhost:8070/panel/add", panelDetails).then(res => {
             console.log(res.data);
         }).catch(err => {
             console.log(err);
@@ -111,12 +111,12 @@ function Panels() {
             <h1>Allocating Panels</h1>
             <br></br>
             <br></br>
-            <form className="form-control" onSubmit={(event) => submitPanel(event)}>
+            <form className="form-control needs-validation" onSubmit={(event) => submitPanel(event)} noValidate>
             <br></br>
             <div className="col-md-8">
                 <label className="form-label">Group Names</label>
                     <select className="form-select" onChange={(event) => groupName(event)} required>
-                        <option>Select Group</option>
+                        <option selected disabled>Select Group</option>
                         {
                             topics.map((topic) => {
                                 return (
@@ -145,11 +145,11 @@ function Panels() {
                 <div className="col-md-8">
                 <label className="form-label">Panel Member 1</label>
                     <select className="form-select" onChange={(event) => panelMember1(event)} required>
-                        <option>Select Panel Member 1</option>
+                        <option selected disabled>Select Panel Member 1</option>
                         {
                             staffs.map((staff) => {
                                 return (
-                                    <option value={staff._id}>{staff.name}</option>
+                                    <option value={staff._id}>{staff.S_name}</option>
                                 )
                             }) 
                         }
@@ -159,11 +159,11 @@ function Panels() {
                 <div className="col-md-8">
                 <label className="form-label">Panel Member 2</label>
                     <select className="form-select" onChange={(event) => panelMember2(event)} required>
-                        <option>Select Panel Member 2</option>
+                        <option selected disabled>Select Panel Member 2</option>
                         {
                             staffs2.map((staff) => {
                                 return (
-                                    <option value={staff._id}>{staff.name}</option>
+                                    <option value={staff._id}>{staff.S_name}</option>
                                 )
                             }) 
                         }
@@ -173,11 +173,11 @@ function Panels() {
                 <div className="col-md-8">
                 <label className="form-label">Panel Member 3</label>
                     <select className="form-select" onChange={(event) => panelMember3(event)} required>
-                        <option>Select Panel Member 3</option>
+                        <option selected disabled>Select Panel Member 3</option>
                         {
                             staffs3.map((staff) => {
                                 return (
-                                    <option value={staff._id}>{staff.name}</option>
+                                    <option value={staff._id}>{staff.S_name}</option>
                                 )
                             }) 
                         }
