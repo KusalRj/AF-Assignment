@@ -75,6 +75,7 @@ export default function Topicedit(){
 
 
     return(
+        <div className='container'>
         <form onSubmit={(event) => EditSubmit(event)}>
         <Table striped bordered hover responsive className='table-sm'>
  
@@ -97,19 +98,19 @@ export default function Topicedit(){
                                 type="text" 
                                 required
                                 name='groupId'
-                                placeholder="first name"
+                               
                                 value={editTopics.groupId}
                                 onChange={EditTopics}></input></td>
                             <td><input 
                                 type="text" 
-                                required
+                                readOnly
                                 name='groupName'
-                                placeholder="last name"
+                                
                                 value={editTopics.groupName}
                                 onChange={EditTopics}></input></td>
                             <td><input 
                                 type="text" 
-                                required
+                                readOnly
                                 name='topic'
                                 placeholder="topic"
                                 value={editTopics.topic}
@@ -118,11 +119,12 @@ export default function Topicedit(){
                                 type="text" 
                                 required
                                 name='topicStatus'
-                                placeholder="register number"
+                                placeholder="Approved/Rejected"
                                 value={editTopics.topicStatus}
                                 onChange={EditTopics}></input></td>
                       
                             <td>
+                     
                                 <button type='submit' className="btn btn-success">Save</button>
                             </td>
                          </tr>
@@ -163,6 +165,7 @@ export default function Topicedit(){
                  </tbody>
             </Table>
             </form>
+            </div>
     )
 
 }
