@@ -6,16 +6,13 @@ function Students() {
     const [students, setStudents] = useState([]);
     const [editStudentID, setEditStudentID] = useState();
     const [editStudents, setEditStudents] = useState({
-        firstName: "",
-        lastName: "",
-        faculty: "",
-        regNum: "",
+        name: "",
         email: ""
     });
 
     useEffect(() => {
         function getStudents() {
-            axios.get("http://localhost:8082/api/users/").then(res => {
+            axios.get("http://localhost:8070/student/").then(res => {
                 setStudents(res.data);
             }).catch(err => {
                 console.log(err);
@@ -27,7 +24,7 @@ function Students() {
     const DeleteStudents = (event, id) => {
         event.preventDefault();
         if (id !== null) {
-            axios.delete(`http://localhost:8082/api/users/delete/${id}`).then(res => {
+            axios.delete(`http://localhost:8070/student/delete/${id}`).then(res => {
                 console.log(res.data);
             }).catch(err => {
                 console.log(err);
@@ -40,10 +37,7 @@ function Students() {
         setEditStudentID(student._id);
 
         const formValues = {
-            firstName: student.firstName,
-            lastName: student.lastName,
-            faculty: student.faculty,
-            regNum: student.regNum,
+            name: student.name,
             email: student.email
         }
         setEditStudents(formValues);
@@ -66,16 +60,13 @@ function Students() {
 
         const edits = {
             id: editStudentID,
-            firstName: editStudents.firstName,
-            lastName: editStudents.lastName,
-            faculty: editStudents.faculty,
-            regNum: editStudents.regNum,
+            name: editStudents.name,
             email: editStudents.email
         }
                 
         //console.log(edits);
 
-        axios.put(`http://localhost:8082/api/users/update/${editStudentID}`, edits).then(res => {
+        axios.put(`http://localhost:8070/student/update/${editStudentID}`, edits).then(res => {
             setStudents(res.data);
             setEditStudentID('');
         }).catch(err => {
@@ -90,11 +81,9 @@ function Students() {
             <table className="table">
                 <thead>
                     <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Faculty</th>
-                        <th>Register Number</th>
+                        <th>Student Name</th>
                         <th>Email Address</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -104,31 +93,10 @@ function Students() {
                             <tr> 
                             <td><input 
                                 type="text" 
-                                required
-                                name='firstName'
-                                placeholder="first name"
-                                value={editStudents.firstName}
-                                onChange={EditStudents}></input></td>
-                            <td><input 
-                                type="text" 
-                                required
-                                name='lastName'
-                                placeholder="last name"
-                                value={editStudents.lastName}
-                                onChange={EditStudents}></input></td>
-                            <td><input 
-                                type="text" 
-                                required
-                                name='faculty'
-                                placeholder="faculty"
-                                value={editStudents.faculty}
-                                onChange={EditStudents}></input></td>
-                            <td><input 
-                                type="text" 
-                                required
-                                name='regNum'
-                                placeholder="register number"
-                                value={editStudents.regNum}
+                                required="required"
+                                name='name'
+                                placeholder="name"
+                                value={editStudents.name}
                                 onChange={EditStudents}></input></td>
                             <td><input 
                                 type="email" 
@@ -143,10 +111,7 @@ function Students() {
                          </tr>
                         ) : (
                             <tr> 
-                                <td>{student.firstName}</td>
-                                <td>{student.lastName}</td>
-                                <td>{student.faculty}</td>
-                                <td>{student.regNum}</td>
+                                <td>{student.name}</td>
                                 <td>{student.email}</td>
                                 <td>
                                     <button type="button" onClick={(event) => DeleteStudents(event, student._id)} className="btn btn-danger">Delete</button>
