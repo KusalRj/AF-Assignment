@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 import axios from "axios";
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 
 
 const TopicDetailsRetrieve = () =>{
@@ -12,7 +12,7 @@ const TopicDetailsRetrieve = () =>{
     const[year,setYEAR] = useState()
     const[supervisor,setSUPERVISOR] = useState()
     const[coSupervisor,setCOSUPERVISOR] = useState()
-    //const[feedback,setFEEDBACK] = useState()
+    const[topicStatus,setTOPICSTATUS] = useState()
 
     useEffect(() => {
 
@@ -25,7 +25,7 @@ const TopicDetailsRetrieve = () =>{
             setYEAR(response.data[0].year)
             setSUPERVISOR(response.data[0].supervisor)
             setCOSUPERVISOR(response.data[0].coSupervisor)
-            //setFEEDBACK(response.data[0].feedback)
+            setTOPICSTATUS(response.data[0].topicStatus)
 
             console.log(response.data)
         })
@@ -82,12 +82,12 @@ const TopicDetailsRetrieve = () =>{
                             value={coSupervisor}
                             className={styles.input}
                     />
-                    {/* <input
+                    <input
                             type="text"                       
-                            name="feedback"                            
-                            value={feedback}
+                            name="topicStatus"                            
+                            value={topicStatus}
                             className={styles.input}
-                    /> */}
+                    />
                 </form>
 
             </div>
