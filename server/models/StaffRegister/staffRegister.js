@@ -46,6 +46,6 @@ staffSchema.methods.verifyCredentials = async function(inputPwd){
   
   })
 
-const Staff = mongoose.model("Staff", staffSchema);
+const StaffReg = mongoose.model("StaffReg", staffSchema);
 
-module.exports = Staff;
+module.exports = StaffReg;

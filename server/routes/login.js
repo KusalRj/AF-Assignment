@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const bcrypt = require("bcrypt");
-const Staff = require("../models/staffRegister");
+const Staff = require("../models/staff");
 
 router.route("/check").post( async (req, res) => {
     

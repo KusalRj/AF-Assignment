@@ -40,10 +40,10 @@ mongoose.connect(URL,{
     //useFindAndModify:false
 });
 
-const connection = mongoose.connection;
-connection.once("open",()=>{
-    console.log("Mongodb Coneection sucsess")
-});
+// const connection = mongoose.connection;
+// connection.once("open",()=>{
+//     console.log("Mongodb Coneection sucsess")
+// });
 
 // routes
 app.use("/api/users", userRoutes);
