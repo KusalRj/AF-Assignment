@@ -37,5 +37,18 @@ app.use("/api/panel", panelRoutes);
 //   res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
 // });
 
+const ev_topicRouter = require("./routes/Evaluate_topics/evaluateTopics.js")
+
+app.use("/evTopic",ev_topicRouter);
+
+const ev_markingRouter = require("./routes/EVMarking/evMarking.js")
+app.use("/evMarking",ev_markingRouter);
+
+const viewPanel = require("./routes/ViewPanel/viewPanel.js")
+app.use("/viewPanel",viewPanel);
+
+const staffRegister = require("./routes/StaffRegister/staffRegister.js")
+app.use("/Register",staffRegister);
+
 const port = process.env.PORT || 8082;
 app.listen(port, console.log(`Listening on port ${port}...`));
