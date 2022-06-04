@@ -27,7 +27,8 @@ export default function ViewPanel () {
   
                 <thead>
                     <tr>
-                        <th scope="col">Group Name</th>
+                    <th scope="col">Group Name</th>
+                        <th scope="col">Topic Name</th>
                         <th scope="col">Panel Member Name</th>  
                         <th scope="col">Panel Member Name</th>
                         <th scope="col">Panel Member Name</th>                      
@@ -38,6 +39,7 @@ export default function ViewPanel () {
                         viewPanels.map((viewPanel) =>(
                             <tr>
                                 <td>{viewPanel.group}</td>
+                                <td>{viewPanel.topicName}</td>
                                 <td>{viewPanel.member1}</td>
                                 <td>{viewPanel.member2}</td>
                                 <td>{viewPanel.member3}</td>
