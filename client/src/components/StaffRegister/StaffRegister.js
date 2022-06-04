@@ -19,9 +19,10 @@ const StaffSignup = () => {  //registration form
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "http://localhost:8082/Register/addStaff";
+			const url = "http://localhost:8070/Register/addStaff";
 			const { data: res } = await axios.post(url, data);
 			// navigate("/S_login");//wenas karapan 
+			alert("Staff added")
 			console.log(res.message);
 		} catch (error) {
 			if (

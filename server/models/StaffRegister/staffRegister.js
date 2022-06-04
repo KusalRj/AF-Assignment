@@ -6,7 +6,7 @@ const staffSchema = new Schema({
 
     S_name: {
         type: String,
-        required: true,
+        required: true
       },
     
     email: {
@@ -16,11 +16,11 @@ const staffSchema = new Schema({
       },
     position: {
         type: String,
-        required: true,
+        required: true
     },
     password: {
         type: String,
-        required: true,
+        required: true
       },
 
       
