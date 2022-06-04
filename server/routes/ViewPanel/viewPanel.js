@@ -1,5 +1,5 @@
 const router = require("express").Router();
-let ViewPanel = require("../../models/ViewPanel/viewPanel");
+let ViewPanel = require("../../models/panel");
 
 router.route("/").get((req,res) => {
 
