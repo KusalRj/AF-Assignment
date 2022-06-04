@@ -18,7 +18,7 @@ export default function AddEvaluateTopic(){
             panel_member
         }
         
-        axios.post("http://localhost:8070/evTopic/add",newEvaluateTopic).then(() => {
+        axios.post("http://localhost:8082/evTopic/add",newEvaluateTopic).then(() => {
             alert("Evaluation added")
         }).catch((err) => {
             alert(err)

@@ -8,7 +8,7 @@ export default function ViewPanel () {
     useEffect(() => {
 
         function getViewPanels(){
-            axios.get("http://localhost:8070/viewPanel/",viewPanels).then((res) => {
+            axios.get("http://localhost:8082/viewPanel/",viewPanels).then((res) => {
                 setViewPanels(res.data);
             }).catch((err) => {
                 alert(err.message);

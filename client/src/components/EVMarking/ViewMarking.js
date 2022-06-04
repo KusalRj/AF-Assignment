@@ -8,7 +8,7 @@ export default function ViewMarking () {
     useEffect(() => {
 
         function getEvMarks(){
-            axios.get("http://localhost:8070/evMarking/",evMarks).then((res) => {
+            axios.get("http://localhost:8082/evMarking/",evMarks).then((res) => {
                 setEvMarks(res.data);
             }).catch((err) => {
                 alert(err.message);

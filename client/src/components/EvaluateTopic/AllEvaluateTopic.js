@@ -8,7 +8,7 @@ export default function AllEvaluateTopics () {
     useEffect(() => {
 
         function getEvaluateTopics(){
-            axios.get("http://localhost:8070/evTopic/",evaluateTopics).then((res) => {
+            axios.get("http://localhost:8082/evTopic/",evaluateTopics).then((res) => {
                 setEvaluateTopics(res.data);
             }).catch((err) => {
                 alert(err.message);

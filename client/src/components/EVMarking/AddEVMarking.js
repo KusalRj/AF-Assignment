@@ -26,7 +26,7 @@ export default function AddEVMarking(){
             layout
         }
         
-        axios.post("http://localhost:8070/evMarking/addEvP",newEvMarking).then(() => {
+        axios.post("http://localhost:8082/evMarking/addEvP",newEvMarking).then(() => {
             alert("Evaluation marks will be added")
         }).catch((err) => {
             alert(err)
