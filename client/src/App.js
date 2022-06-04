@@ -6,6 +6,10 @@ import RegTopic from "./components/RegTopic";
 import RegGroup from "./components/RegGroup";
 import RegTopicUpdate from"./components/RegTopicUpdate";
 import TopicDetailsRetrieve from"./components/TopicDetailsRetrieve";
+import Home from "./components/Home";
+import Panels from "./components/panels";
+import Staff from "./components/staff";
+import Students from "./components/students";
 //import FileUpload from "./components/FileUpload";
 function App() {
 	const user = localStorage.getItem("token");
@@ -20,6 +24,10 @@ function App() {
 			<Route path="/reggroup" exact element={<RegGroup />} />
 			<Route path="/regtopicupdate" exact element={<RegTopicUpdate />} />
 			<Route path="/regtopicretrieve" exact element={< TopicDetailsRetrieve/>} />
+			<Route path="/students" element={<Students/>}/>
+            <Route path="/staff" element={<Staff/>}/>
+            <Route path="/panels" element = {<Panels/>}/>
+        	<Route path="/admin" element = {<Home/>}/>
 			{/* <Route path="/fileupload" exact element={< FileUpload/>} /> */}
 
 			
